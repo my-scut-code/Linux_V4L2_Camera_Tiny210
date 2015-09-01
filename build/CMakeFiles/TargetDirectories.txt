@@ -1,0 +1,1 @@
+//home/work/workshop/camera/build/CMakeFiles/main.dir

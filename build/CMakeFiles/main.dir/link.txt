@@ -1,0 +1,1 @@
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc      CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/camera.c.o CMakeFiles/main.dir/V4L2.c.o  -o main -rdynamic 
