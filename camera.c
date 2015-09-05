@@ -5,13 +5,16 @@
 #include <errno.h>
 #include <stdio.h>
 
-#define NUM_BUFFERNUM 4
-#define BMP "/home/image_bmp.bmp"
-#define YUV "/home/image_yuv.yuv"
+#define NUM_BUFFERNUM 2
+#define BMP "/home/plg/image_bmp.bmp"
+#define YUV "/home/plg/image_yuv.yuv"
+
+#define __DEBUG__
 
 void *CreateCameraContext()
 {
-	return CreamV4l2Context();
+	void* v4l2_context = CreamV4l2Context(); 
+	return v4l2_context;
 }
 void DestoryCameraCotext(void* v4l2ctx)
 {
@@ -53,7 +56,9 @@ int StartCamera(void* v4l2ctx, int *width, int *height, int Fps)
 void StopCamera(void* v4l2ctx)
 {
 	StopStream(v4l2ctx);
-
+#ifdef __DEBUG__
+	printf("had stopstream ! \n");
+#endif
 	V4l2StopMapBuffer(v4l2ctx);
 }
 
@@ -168,6 +173,37 @@ void Yuv_2_Rgb(void* v4l2ctx, unsigned char *Frame_buffer)
 	}
 }
 
+static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
+{
+	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
+
+	int height = V4l2_Context->height;
+	int width = V4l2_Context->width;
+	int r,g,b;
+	int i,j;
+	unsigned char * buf;
+	buf = (unsigned char *)malloc(width*height*3*sizeof(unsigned char));
+	if (NULL == buf)
+	{
+		perror("don't have enough space!!\n");
+	}
+	memcpy(buf, Frame_buffer,(width*height*3*sizeof(unsigned char)));
+	for(i=0; i < height; i++)
+	{
+		for(j=0; j < width; j++)
+		{
+			r = *(Frame_buffer + (i * width +j) * 3);
+			g = *(Frame_buffer + (i * width + j) * 3 + 1);
+			b = *(Frame_buffer + (i * width + j) * 3 + 2);
+			*(buf + ((height-i-1)*width+j)*3) = b;
+			*(buf + ((height-i-1)*width+j)*3+1) = g;
+			*(buf + ((height-i-1)*width+j)*3+2) = r;
+		}
+	}
+	memcpy(Frame_buffer, buf, (width*height*3*sizeof(unsigned char)));
+	free(buf);
+}
+
 
 void InitBMP(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf)
 {
@@ -195,29 +231,32 @@ void InitBMP(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf)
 void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, unsigned char *Frame_Buffer)
 {
 	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
-	FILE *fp1, *fp2;
+	FILE *fp1;
 
 	fp1 = fopen(BMP, "wb");
 	if (NULL == fp1)
 	{
 		perror("open BMP error!!");
 	}
+	/*
 	fp2 = fopen(YUV, "wb");
 	if (NULL == fp2)
 	{
 		perror("open YUV error");
 	}
+	
 	fwrite(V4l2_Context->mMapMem.mem[0], V4l2_Context->width*V4l2_Context->height*2, 1, fp2);
 	printf("YUV write finish!\n");
-
+	*/
 	Yuv_2_Rgb(v4l2ctx, Frame_Buffer);
+	//RGB2BGR(v4l2ctx, Frame_Buffer);
 	fwrite(&bf, 14, 1, fp1);
 	fwrite(&bi, 40, 1, fp1);
 	fwrite(Frame_Buffer, bi->biSizeImage, 1, fp1);
 	printf("BMP write finish!\n");
 
 	fclose(fp1);
-	fclose(fp2);
+	//fclose(fp2);
 }
 
 /*

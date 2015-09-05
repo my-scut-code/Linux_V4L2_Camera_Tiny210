@@ -10,6 +10,8 @@
 #include "decoder_mjpeg.h"
 #include "decoder.h"
 
+#define __DEBUG__
+
 static int is_huffman(unsigned char *buf)
 {
 	int i = 0;
@@ -31,7 +33,7 @@ static int is_huffman(unsigned char *buf)
 
 	return 0;
 }
-
+/*
 typedef struct jpeg_error_mgr * my_error_ptr;
 
 void my_error_exit(j_common_ptr cinfo)
@@ -42,7 +44,7 @@ void my_error_exit(j_common_ptr cinfo)
 
 	longjmp(myerr->setjmp_buffer,1);
 }
-
+*/
 static void decoder_jpeg_decompress(unsigned char *out_buf,
 	unsigned char * jpeg_buf,
 	int jpeg_size)
@@ -53,15 +55,19 @@ static void decoder_jpeg_decompress(unsigned char *out_buf,
 	struct jpeg_error_mgr jerr;
 
 	/*step1:*/
-	cinfo.err = jpeg_std_errer(&jerr);
+	cinfo.err = jpeg_std_error(&jerr);
 	jpeg_create_decompress(&cinfo);
 
 	/*step2*/
-	jpeg_mem_str(&cinfo, jpeg_buf, jpeg_size);
-
+	jpeg_mem_src(&cinfo, jpeg_buf, jpeg_size);
+#ifdef __DEBUG__
+	printf("begin read head!\n");
+#endif
 	/*step3*/
 	(void)jpeg_read_header(&cinfo, TRUE);
-
+#ifdef __DEBUG__
+	printf("after read head!\n");
+#endif
 	/*step4*/
 	cinfo.out_color_space = JCS_YCbCr;
 
@@ -81,13 +87,16 @@ static void decoder_jpeg_decompress(unsigned char *out_buf,
 	(void) jpeg_finish_decompress(&cinfo);
 
 	/*step8*/
-	jpeg_decompress_struct(&cinfo);
+	jpeg_destroy_decompress(&cinfo);
+#ifdef __DEBUG__
+	printf("decompress finish!!\n");
+#endif
 }
 
-static void decoder_mjpeg_decode(Decoder *thiz,
-	unsigned char *out_buf,
-	unsigned char *in_buf,
-	int buf_size)
+void decoder_mjpeg_decode(Decoder *thiz,
+		unsigned char *out_buf,
+		unsigned char *in_buf,
+		int buf_size)
 {
 	if (NULL == out_buf)
 	{
@@ -99,6 +108,9 @@ static void decoder_mjpeg_decode(Decoder *thiz,
 		printf("in_buf is null!\n");
 		exit(0);
 	}
+#ifdef __DEBUG__
+	printf("before is_huffman in decoder_mjpeg_decode!\n");
+#endif
 	int pos = 0;
 	int size_start = 0;
 	unsigned char *pdeb = in_buf;
@@ -131,18 +143,22 @@ static void decoder_mjpeg_decode(Decoder *thiz,
 			printf("SOFO existde at the position!\n");
 #endif
 			jpeg_buf = malloc(buf_size + sizeof(dht_data) + 10);
+			
 			if (jpeg_buf != NULL)
 			{
 				size_start = pcur - pdeb;
 				memcpy(jpeg_buf, in_buf, size_start);
 				pos += size_start;
 
-				memcpy(jpeg_buf, dht_data, sizeof(dht_data));
+				memcpy(jpeg_buf + pos, dht_data, sizeof(dht_data));
 				pos += sizeof(dht_data);
 
 				memcpy(jpeg_buf+pos, pcur,buf_size);
 				pos += buf_size - size_start;
-
+				
+#ifdef __DEBUG__
+				printf("begin decoder_jpeg_decompress!!\n");
+#endif
 				decoder_jpeg_decompress(out_buf, jpeg_buf, pos);
 
 				free(jpeg_buf);
@@ -161,12 +177,12 @@ static void decoder_mjpeg_destory(Decoder *thiz)
 	}
 }
 
-Decoder *decoder_mjpeg_create(int mjpeg_size)
+Decoder *decoder_mjpeg_create()
 {
-	Decoder *thiz = malloc(sizeof(Decoder));
+	Decoder *thiz = (Decoder*)malloc(sizeof(Decoder));
 	if (NULL != thiz)
 	{
-		thiz->decode = decoder_jpeg_decompress;
+		thiz->decode = decoder_mjpeg_decode;
 		thiz->destroy = decoder_mjpeg_destory;
 	}
 

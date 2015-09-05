@@ -2,7 +2,7 @@ The target system is: Linux -  -
 The host system is: Linux - 3.13.0-32-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc 
-Build flags: 
+Build flags: -L/home/work/workshop/camera;-ljpeg
 Id flags: 
 
 The output was:
@@ -11,10 +11,10 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "//home/work/workshop/camera/build/CMakeFiles/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/work/workshop/camera/build/CMakeFiles/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: //home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++ 
+Compiler: /home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++ 
 Build flags: 
 Id flags: 
 
@@ -24,17 +24,17 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "//home/work/workshop/camera/build/CMakeFiles/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/work/workshop/camera/build/CMakeFiles/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp
+Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
 make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building C object CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o
-/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o   -c //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/testCCompiler.c
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o   -c /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/testCCompiler.c
 Linking C executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
 /home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc         CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.o  -o cmTryCompileExec -rdynamic 
@@ -42,12 +42,12 @@ make[1]:正在离开目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp
+Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
 make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o
 /home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
 Linking C executable cmTryCompileExec
@@ -69,12 +69,12 @@ make[1]:正在离开目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-gnueabi-ld|ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp]
   ignore line: []
   ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec/fast"]
   ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build]
   ignore line: [make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
   ignore line: [Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o]
   ignore line: [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
   ignore line: [Linking C executable cmTryCompileExec]
@@ -130,47 +130,47 @@ Parsed C implicit link information from above output:
   remove lib [gcc_s]
   remove lib [gcc]
   remove lib [gcc_s]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3/../../../../arm-linux-gnueabi/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3/../../../../arm-linux-gnueabi/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
   implicit libs: [c]
-  implicit dirs: [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
+  implicit dirs: [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp
+Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
 make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o
-//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++          CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++          CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
 make[1]:正在离开目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp
+Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
 make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o
-//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
 Using built-in specs.
-COLLECT_GCC=//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++
+COLLECT_GCC=/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++
 COLLECT_LTO_WRAPPER=/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../libexec/gcc/arm-linux-gnueabi/4.6.3/lto-wrapper
 Target: arm-linux-gnueabi
 Configured with: /scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/src/gcc-linaro-4.6-2012.02/configure --build=i686-build_pc-linux-gnu --host=i686-build_pc-linux-gnu --target=arm-linux-gnueabi --prefix=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install --with-sysroot=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install/arm-linux-gnueabi/libc --enable-languages=c,c++,fortran --disable-multilib --with-arch=armv7-a --with-tune=cortex-a9 --with-fpu=vfpv3-d16 --with-float=softfp --with-pkgversion='crosstool-NG linaro-1.13.1-2012.02-20120222 - Linaro GCC 2012.02' --with-bugurl=https://bugs.launchpad.net/gcc-linaro --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --with-gmp=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-mpfr=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-mpc=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-ppl=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-cloog=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-libelf=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-host-libstdcxx='-L/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static/lib -lpwl' --enable-threads=posix --disable-libstdcxx-pch --enable-linker-build-id --enable-gold --with-local-prefix=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install/arm-linux-gnueabi/libc --enable-c99 --enable-long-long --with-mode=thumb
@@ -185,19 +185,19 @@ make[1]:正在离开目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-gnueabi-ld|ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: //home/work/workshop/camera/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/work/workshop/camera/build/CMakeFiles/CMakeTmp]
   ignore line: []
   ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec/fast"]
   ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build]
   ignore line: [make[1]: 正在进入目录 `/home/work/workshop/camera/build/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/cmake -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
   ignore line: [Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Linking CXX executable cmTryCompileExec]
   ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1]
-  ignore line: [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
+  ignore line: [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++]
+  ignore line: [COLLECT_GCC=/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++]
   ignore line: [COLLECT_LTO_WRAPPER=/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../libexec/gcc/arm-linux-gnueabi/4.6.3/lto-wrapper]
   ignore line: [Target: arm-linux-gnueabi]
   ignore line: [Configured with: /scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/src/gcc-linaro-4.6-2012.02/configure --build=i686-build_pc-linux-gnu --host=i686-build_pc-linux-gnu --target=arm-linux-gnueabi --prefix=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install --with-sysroot=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install/arm-linux-gnueabi/libc --enable-languages=c,c++,fortran --disable-multilib --with-arch=armv7-a --with-tune=cortex-a9 --with-fpu=vfpv3-d16 --with-float=softfp --with-pkgversion='crosstool-NG linaro-1.13.1-2012.02-20120222 - Linaro GCC 2012.02' --with-bugurl=https://bugs.launchpad.net/gcc-linaro --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --with-gmp=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-mpfr=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-mpc=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-ppl=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-cloog=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-libelf=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static --with-host-libstdcxx='-L/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/.build/arm-linux-gnueabi/build/static/lib -lpwl' --enable-threads=posix --disable-libstdcxx-pch --enable-linker-build-id --enable-gold --with-local-prefix=/scratch/cbuild/slave/slaves/oort14/crosstool-ng-linaro-1.13.1-2012.02-20120222/crosstool-ng/default/c/builds/arm-linux-gnueabi-linux/install/arm-linux-gnueabi/libc --enable-c99 --enable-long-long --with-mode=thumb]
@@ -244,15 +244,15 @@ Parsed CXX implicit link information from above output:
   remove lib [gcc]
   remove lib [gcc_s]
   remove lib [gcc]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3/../../../../arm-linux-gnueabi/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi]
-  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib] ==> [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../lib/gcc/arm-linux-gnueabi/4.6.3/../../../../arm-linux-gnueabi/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi]
+  collapse dir [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/../arm-linux-gnueabi/libc/usr/lib] ==> [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
   implicit libs: [stdc++;m;c]
-  implicit dirs: [//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
+  implicit dirs: [/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib]
 
 

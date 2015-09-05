@@ -1,11 +1,11 @@
-SET(CMAKE_CXX_COMPILER "//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++")
+SET(CMAKE_CXX_COMPILER "/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-c++")
 SET(CMAKE_CXX_COMPILER_ARG1 "")
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 SET(CMAKE_CXX_PLATFORM_ID "Linux")
 
-SET(CMAKE_AR "//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ar")
-SET(CMAKE_RANLIB "//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ranlib")
-SET(CMAKE_LINKER "//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ld")
+SET(CMAKE_AR "/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ar")
+SET(CMAKE_RANLIB "/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ranlib")
+SET(CMAKE_LINKER "/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-ld")
 SET(CMAKE_COMPILER_IS_GNUCXX 1)
 SET(CMAKE_CXX_COMPILER_LOADED 1)
 SET(CMAKE_COMPILER_IS_MINGW )
@@ -47,4 +47,4 @@ SET(CMAKE_CXX_HAS_ISYSROOT "")
 
 
 SET(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;c")
-SET(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;//home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib")
+SET(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi/4.6.3;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/lib/gcc;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/lib;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib/arm-linux-gnueabi;/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/arm-linux-gnueabi/libc/usr/lib")

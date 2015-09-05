@@ -6,41 +6,31 @@
 
 #IncludeRegexTransform: 
 
-//home/work/workshop/camera/V4L2.h
-videodev.h
-//home/work/workshop/camera/videodev.h
-
-//home/work/workshop/camera/camera.c
-camera.h
-//home/work/workshop/camera/camera.h
+/home/work/workshop/camera/V4L2.c
 V4L2.h
-//home/work/workshop/camera/V4L2.h
+/home/work/workshop/camera/V4L2.h
 malloc.h
 -
 string.h
 -
-errno.h
+sys/ioctl.h
 -
-stdio.h
+sys/mman.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+unistd.h
 -
 
-//home/work/workshop/camera/camera.h
+/home/work/workshop/camera/V4L2.h
 videodev.h
-//home/work/workshop/camera/videodev.h
-string.h
--
+/home/work/workshop/camera/videodev.h
 
-//home/work/workshop/camera/main.c
-camera.h
-//home/work/workshop/camera/camera.h
-V4L2.h
-//home/work/workshop/camera/V4L2.h
-errno.h
--
-string.h
--
-
-//home/work/workshop/camera/videodev.h
+/home/work/workshop/camera/videodev.h
 linux/time.h
 -
 sys/time.h

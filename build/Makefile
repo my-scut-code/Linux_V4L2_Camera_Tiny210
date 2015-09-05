@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = //home/work/workshop/camera
+CMAKE_SOURCE_DIR = /home/work/workshop/camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = //home/work/workshop/camera/build
+CMAKE_BINARY_DIR = /home/work/workshop/camera/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,9 +66,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start //home/work/workshop/camera/build/CMakeFiles //home/work/workshop/camera/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/work/workshop/camera/build/CMakeFiles /home/work/workshop/camera/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start //home/work/workshop/camera/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/work/workshop/camera/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -156,6 +156,30 @@ camera.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/camera.c.s
 .PHONY : camera.c.s
 
+decoder_mjpeg.o: decoder_mjpeg.c.o
+.PHONY : decoder_mjpeg.o
+
+# target to build an object file
+decoder_mjpeg.c.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/decoder_mjpeg.c.o
+.PHONY : decoder_mjpeg.c.o
+
+decoder_mjpeg.i: decoder_mjpeg.c.i
+.PHONY : decoder_mjpeg.i
+
+# target to preprocess a source file
+decoder_mjpeg.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/decoder_mjpeg.c.i
+.PHONY : decoder_mjpeg.c.i
+
+decoder_mjpeg.s: decoder_mjpeg.c.s
+.PHONY : decoder_mjpeg.s
+
+# target to generate assembly for a file
+decoder_mjpeg.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/decoder_mjpeg.c.s
+.PHONY : decoder_mjpeg.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -195,6 +219,9 @@ help:
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
+	@echo "... decoder_mjpeg.o"
+	@echo "... decoder_mjpeg.i"
+	@echo "... decoder_mjpeg.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

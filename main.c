@@ -11,14 +11,14 @@ void main()
 {
 	int ret = 0;
 	void * v4l2ctx = NULL;
-	int height = 480;
-	int width = 640;
+	int height = 240;
+	int width = 320;
 	int fps = 10;
 	unsigned char *Frame_Buffer;
 	
-	Decoder *decoder = decoder_mjpeg_creat();
+	Decoder *decoder = decoder_mjpeg_create();
 	
-	Frame_Buffer = (unsigned char *) malloc(sizeof(unsigned char)*480*640*3);
+	Frame_Buffer = (unsigned char *) malloc(sizeof(unsigned char)*240*320*3);
 
 	v4l2ctx = CreateCameraContext();
 #ifdef __DEBUG__
@@ -73,7 +73,7 @@ void main()
 #ifdef __DEBUG__
 	printf("Before CloseCameraDevice in main!\n");
 #endif
-	CloseCameraDevice(v4l2ctx);
+	CloseCamera(v4l2ctx);
 	DestoryCameraCotext(v4l2ctx);
 
 	v4l2ctx = NULL;

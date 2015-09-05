@@ -1,1 +1,1 @@
-/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc      CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/camera.c.o CMakeFiles/main.dir/V4L2.c.o  -o main -rdynamic 
+/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  -L/home/work/workshop/camera -ljpeg    CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/camera.c.o CMakeFiles/main.dir/V4L2.c.o CMakeFiles/main.dir/decoder_mjpeg.c.o  -o main -rdynamic -L. -Wl,-Bstatic -ljpeg -Wl,-Bdynamic -ljpeg -Wl,-rpath,. 

@@ -1,4 +1,8 @@
+#ifndef _DECODER_H_
+#define _DECODER_H_
+
 #include <stdlib.h>
+#include <assert.h>
 
 #ifdef __cplusplus
 extern "C"{
@@ -18,30 +22,26 @@ struct _Decoder
 	char priv[];
 };
 
-static inline void decoder_decode(Decoder *thiz,
-	unsigned char *out_buf,
-	unsigned char *in_buf,
-	int buf_size)
+static inline void decoder_decode(Decoder *thiz, unsigned char *out_buf, unsigned char *in_buf, int buf_size)
 {
-	assert(thiz != NULL && thiz->decode != NULL)
-	{
-		thiz->decode(thiz, out_buf, in_buf, buf_size);
-	}
+	assert(thiz != NULL && thiz->decode != NULL);
+
+	thiz->decode(thiz, out_buf, in_buf, buf_size);
 }
 
-static inline void decoder_destory(Decoder *thiz,
-	unsigned char *out_buf,
-	unsigned char *in_buf,
-	int buf_size)
+static inline void decoder_destory(Decoder *thiz, unsigned char *out_buf, unsigned char *in_buf, int buf_size)
 {
-	assert(thiz != NULL && thiz->destroy != NULL)
-	{
-		thiz->destroy(thiz);
-	}
+	assert(thiz != NULL && thiz->destroy != NULL);
+
+	thiz->destroy(thiz);
+
 }
 
 
 
-#ifdef 
+#ifdef __cplusplus
 }
+#endif
+
+
 #endif

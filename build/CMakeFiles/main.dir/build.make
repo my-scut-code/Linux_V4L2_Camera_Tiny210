@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = //home/work/workshop/camera
+CMAKE_SOURCE_DIR = /home/work/workshop/camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = //home/work/workshop/camera/build
+CMAKE_BINARY_DIR = /home/work/workshop/camera/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.c.o: ../main.c
-	$(CMAKE_COMMAND) -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/main.c.o"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/main.c.o   -c //home/work/workshop/camera/main.c
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/main.c.o   -c /home/work/workshop/camera/main.c
 
 CMakeFiles/main.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/main.c.i"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E //home/work/workshop/camera/main.c > CMakeFiles/main.dir/main.c.i
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E /home/work/workshop/camera/main.c > CMakeFiles/main.dir/main.c.i
 
 CMakeFiles/main.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/main.c.s"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S //home/work/workshop/camera/main.c -o CMakeFiles/main.dir/main.c.s
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S /home/work/workshop/camera/main.c -o CMakeFiles/main.dir/main.c.s
 
 CMakeFiles/main.dir/main.c.o.requires:
 .PHONY : CMakeFiles/main.dir/main.c.o.requires
@@ -71,17 +71,17 @@ CMakeFiles/main.dir/main.c.o.provides.build: CMakeFiles/main.dir/main.c.o
 
 CMakeFiles/main.dir/camera.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/camera.c.o: ../camera.c
-	$(CMAKE_COMMAND) -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/camera.c.o"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/camera.c.o   -c //home/work/workshop/camera/camera.c
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/camera.c.o   -c /home/work/workshop/camera/camera.c
 
 CMakeFiles/main.dir/camera.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/camera.c.i"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E //home/work/workshop/camera/camera.c > CMakeFiles/main.dir/camera.c.i
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E /home/work/workshop/camera/camera.c > CMakeFiles/main.dir/camera.c.i
 
 CMakeFiles/main.dir/camera.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/camera.c.s"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S //home/work/workshop/camera/camera.c -o CMakeFiles/main.dir/camera.c.s
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S /home/work/workshop/camera/camera.c -o CMakeFiles/main.dir/camera.c.s
 
 CMakeFiles/main.dir/camera.c.o.requires:
 .PHONY : CMakeFiles/main.dir/camera.c.o.requires
@@ -94,17 +94,17 @@ CMakeFiles/main.dir/camera.c.o.provides.build: CMakeFiles/main.dir/camera.c.o
 
 CMakeFiles/main.dir/V4L2.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/V4L2.c.o: ../V4L2.c
-	$(CMAKE_COMMAND) -E cmake_progress_report //home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/V4L2.c.o"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/V4L2.c.o   -c //home/work/workshop/camera/V4L2.c
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/V4L2.c.o   -c /home/work/workshop/camera/V4L2.c
 
 CMakeFiles/main.dir/V4L2.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/V4L2.c.i"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E //home/work/workshop/camera/V4L2.c > CMakeFiles/main.dir/V4L2.c.i
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E /home/work/workshop/camera/V4L2.c > CMakeFiles/main.dir/V4L2.c.i
 
 CMakeFiles/main.dir/V4L2.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/V4L2.c.s"
-	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S //home/work/workshop/camera/V4L2.c -o CMakeFiles/main.dir/V4L2.c.s
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S /home/work/workshop/camera/V4L2.c -o CMakeFiles/main.dir/V4L2.c.s
 
 CMakeFiles/main.dir/V4L2.c.o.requires:
 .PHONY : CMakeFiles/main.dir/V4L2.c.o.requires
@@ -115,11 +115,35 @@ CMakeFiles/main.dir/V4L2.c.o.provides: CMakeFiles/main.dir/V4L2.c.o.requires
 
 CMakeFiles/main.dir/V4L2.c.o.provides.build: CMakeFiles/main.dir/V4L2.c.o
 
+CMakeFiles/main.dir/decoder_mjpeg.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../decoder_mjpeg.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/work/workshop/camera/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/decoder_mjpeg.c.o"
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/decoder_mjpeg.c.o   -c /home/work/workshop/camera/decoder_mjpeg.c
+
+CMakeFiles/main.dir/decoder_mjpeg.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/decoder_mjpeg.c.i"
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -E /home/work/workshop/camera/decoder_mjpeg.c > CMakeFiles/main.dir/decoder_mjpeg.c.i
+
+CMakeFiles/main.dir/decoder_mjpeg.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/decoder_mjpeg.c.s"
+	/home/work/workshop/licheelinux/out/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-gcc  $(C_DEFINES) $(C_FLAGS) -S /home/work/workshop/camera/decoder_mjpeg.c -o CMakeFiles/main.dir/decoder_mjpeg.c.s
+
+CMakeFiles/main.dir/decoder_mjpeg.c.o.requires:
+.PHONY : CMakeFiles/main.dir/decoder_mjpeg.c.o.requires
+
+CMakeFiles/main.dir/decoder_mjpeg.c.o.provides: CMakeFiles/main.dir/decoder_mjpeg.c.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/decoder_mjpeg.c.o.provides.build
+.PHONY : CMakeFiles/main.dir/decoder_mjpeg.c.o.provides
+
+CMakeFiles/main.dir/decoder_mjpeg.c.o.provides.build: CMakeFiles/main.dir/decoder_mjpeg.c.o
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.o" \
 "CMakeFiles/main.dir/camera.c.o" \
-"CMakeFiles/main.dir/V4L2.c.o"
+"CMakeFiles/main.dir/V4L2.c.o" \
+"CMakeFiles/main.dir/decoder_mjpeg.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -127,6 +151,7 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/main.c.o
 main: CMakeFiles/main.dir/camera.c.o
 main: CMakeFiles/main.dir/V4L2.c.o
+main: CMakeFiles/main.dir/decoder_mjpeg.c.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable main"
@@ -139,6 +164,7 @@ CMakeFiles/main.dir/build: main
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/main.c.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/camera.c.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/V4L2.c.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/decoder_mjpeg.c.o.requires
 .PHONY : CMakeFiles/main.dir/requires
 
 CMakeFiles/main.dir/clean:
@@ -146,6 +172,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd //home/work/workshop/camera/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" //home/work/workshop/camera //home/work/workshop/camera //home/work/workshop/camera/build //home/work/workshop/camera/build //home/work/workshop/camera/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/work/workshop/camera/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/work/workshop/camera /home/work/workshop/camera /home/work/workshop/camera/build /home/work/workshop/camera/build /home/work/workshop/camera/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

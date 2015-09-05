@@ -10,8 +10,19 @@ CMakeFiles/main.dir/camera.c.o: ../camera.c
 CMakeFiles/main.dir/camera.c.o: ../camera.h
 CMakeFiles/main.dir/camera.c.o: ../videodev.h
 
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../decoder.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../decoder_mjpeg.c
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../decoder_mjpeg.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../huffman.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../jconfig.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../jerror.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../jmorecfg.h
+CMakeFiles/main.dir/decoder_mjpeg.c.o: ../jpeglib.h
+
 CMakeFiles/main.dir/main.c.o: ../V4L2.h
 CMakeFiles/main.dir/main.c.o: ../camera.h
+CMakeFiles/main.dir/main.c.o: ../decoder.h
+CMakeFiles/main.dir/main.c.o: ../decoder_mjpeg.h
 CMakeFiles/main.dir/main.c.o: ../main.c
 CMakeFiles/main.dir/main.c.o: ../videodev.h
 
