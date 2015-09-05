@@ -187,7 +187,8 @@ static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
 	{
 		perror("don't have enough space!!\n");
 	}
-	memcpy(buf, Frame_buffer,(width*height*3*sizeof(unsigned char)));
+	memset(buf, 0, (width*height*sizeof(unsigned char)));	
+	//memcpy(buf, Frame_buffer,(width*height*3*sizeof(unsigned char)));
 	for(i=0; i < height; i++)
 	{
 		for(j=0; j < width; j++)
@@ -248,8 +249,8 @@ void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, 
 	fwrite(V4l2_Context->mMapMem.mem[0], V4l2_Context->width*V4l2_Context->height*2, 1, fp2);
 	printf("YUV write finish!\n");
 	*/
-	Yuv_2_Rgb(v4l2ctx, Frame_Buffer);
-	//RGB2BGR(v4l2ctx, Frame_Buffer);
+	//Yuv_2_Rgb(v4l2ctx, Frame_Buffer);
+	RGB2BGR(v4l2ctx, Frame_Buffer);
 	fwrite(&bf, 14, 1, fp1);
 	fwrite(&bi, 40, 1, fp1);
 	fwrite(Frame_Buffer, bi->biSizeImage, 1, fp1);

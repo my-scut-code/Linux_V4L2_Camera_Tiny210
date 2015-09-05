@@ -69,7 +69,7 @@ static void decoder_jpeg_decompress(unsigned char *out_buf,
 	printf("after read head!\n");
 #endif
 	/*step4*/
-	cinfo.out_color_space = JCS_YCbCr;
+	//cinfo.out_color_space = JCS_YCbCr;
 
 	/*step5*/
 	(void)jpeg_start_decompress(&cinfo);
