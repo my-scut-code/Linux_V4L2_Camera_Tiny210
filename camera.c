@@ -5,10 +5,10 @@
 #include <errno.h>
 #include <stdio.h>
 
-#define NUM_BUFFERNUM 2
-#define BMP "/home/plg/image_bmp.bmp"
+#define NUM_BUFFERNUM 1
+#define BMP "/home/plg/image.bmp"
 #define YUV "/home/plg/image_yuv.yuv"
-
+unsigned char TESTBUF[240 * 320*4];
 #define __DEBUG__
 
 void *CreateCameraContext()
@@ -232,13 +232,15 @@ void InitBMP(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf)
 void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, unsigned char *Frame_Buffer)
 {
 	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
-	FILE *fp1;
+	//FILE *fp1;
 
-	fp1 = fopen(BMP, "wb");
-	if (NULL == fp1)
-	{
-		perror("open BMP error!!");
-	}
+	unsigned char end[2] = {0,0};
+	//fp1 = fopen(BMP, "wb");
+	//if (NULL == fp1)
+	//{
+	//	perror("open BMP error!!");
+	//}
+	unsigned char *gray = (unsigned char *)malloc(sizeof(unsigned char)*240*320*3);
 	/*
 	fp2 = fopen(YUV, "wb");
 	if (NULL == fp2)
@@ -250,13 +252,25 @@ void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, 
 	printf("YUV write finish!\n");
 	*/
 	//Yuv_2_Rgb(v4l2ctx, Frame_Buffer);
-	RGB2BGR(v4l2ctx, Frame_Buffer);
-	fwrite(&bf, 14, 1, fp1);
-	fwrite(&bi, 40, 1, fp1);
+	/*
+	char heard[54] = {0x42,0x4d,0x38,0x84,0x03,0,0,0,0,0,0x36,0,0,0,0x28,0,\
+		0,0,0x40,0x01,0,0,0xf0,0,0,0,0x01,0,0x18,0,0,0,\
+		0,0,0x2,0x84,0x03,0,0x12,0x0b,0,0,0x12,0x0b,0,0,0,0,\
+		0,0,0,0,0,0};
+	
+	//RGB2BGR(v4l2ctx, Frame_Buffer);
+	//fwrite(&bf, 14, 1, fp1);
+	//fwrite(&bi, 40, 1, fp1);
+	fwrite(heard, 54, 1, fp1);
 	fwrite(Frame_Buffer, bi->biSizeImage, 1, fp1);
+	fwrite(end, 2, 1, fp1);
 	printf("BMP write finish!\n");
 
 	fclose(fp1);
+	*/
+	Gray(Frame_Buffer, gray, 320, 240);
+	SaveCompareRgb(gray, 240, 320);
+	free(gray);
 	//fclose(fp2);
 }
 
@@ -297,3 +311,77 @@ int main(_In_ int _Argc, _In_count_(_Argc) _Pre_z_ char ** _Argv, _In_z_ char **
 
 }
 */
+void Gray(unsigned char* src, unsigned char* gry,int iw, int ih)//转变灰度图像代码
+{
+	unsigned char r, g, b;
+	unsigned char gray;
+	int pos = 0;
+	int i = 0;
+	int len = iw*ih*3;
+	for( i = (len-1); i >0; i-=3)
+	{
+		b = src[i+2];
+		g = src[i+1];
+		r = src[i];
+		gray = (r+(g<<1)+b)>>2;
+		gry[pos++] = gray;
+	}
+	return;
+}
+
+void SaveCompareRgb(unsigned char*RGB,int height, int width)
+{
+	time_t   now;
+	int i = 0;
+	struct   tm     *timenow;
+	char filename[200] = {0};
+	char end[2] = {0,0};
+	//static int ms = 0;
+	int w = width;
+	int h = height;
+	FILE *outfile;
+	char heard[54] = {0x42,0x4d,0x30,0x0C,0x01,0,0,0,0,0,0x36,0,0,0,0x28,0,\
+		0,0,0xF5,0,0,0,0x46,0,0,0,0x01,0,0x20,0,0,0,\
+		0,0,0xF8,0x0b,0x01,0,0x12,0x0b,0,0,0x12,0x0b,0,0,0,0,\
+		0,0,0,0,0,0};
+	int size = width*height;
+	int allsize = size *4+ 56;
+	memset(filename,0,200);
+	heard[2] = allsize&0xFF;
+	heard[3] = (allsize>>8)&0xFF;
+	heard[4] = (allsize>>16)&0xFF;
+	heard[5] = (allsize>>24)&0xFF;
+
+	heard[18] = w&0xFF;
+	heard[19] = (w>>8)&0xFF;
+	heard[20] = (w>>16)&0xFF;
+	heard[21] = (w>>24)&0xFF;
+
+	heard[22] = h&0xFF;
+	heard[23] = (h>>8)&0xFF;
+	heard[24] = (h>>16)&0xFF;
+	heard[25] = (h>>24)&0xFF;
+
+	allsize -=54;
+	heard[34] = allsize&0xFF;
+	heard[35] = (allsize>>8)&0xFF;
+	heard[36] = (allsize>>16)&0xFF;
+	heard[37] = (allsize>>24)&0xFF;
+	for(i=0;i<size;i++)
+	{
+		TESTBUF[i*4] = RGB[i];
+		TESTBUF[i*4+1] = RGB[i];
+		TESTBUF[i*4+2] = RGB[i];
+		TESTBUF[i*4+3] = 0xFF;
+	}
+	sprintf(filename,"%s/%02d.bmp",BMP,1);
+	outfile = fopen(BMP, "wb" );
+	if(outfile!=NULL){
+		fwrite(heard,54,1,outfile);
+		fwrite(TESTBUF,size*4,1,outfile);
+		fwrite(end,2,1,outfile);
+		fclose(outfile);
+		//ms++;
+	}
+
+}

@@ -14,11 +14,12 @@ void main()
 	int height = 240;
 	int width = 320;
 	int fps = 10;
-	unsigned char *Frame_Buffer;
+	unsigned char *Frame_Buffer, *Jpeg_Buffer;
 	
 	Decoder *decoder = decoder_mjpeg_create();
 	
 	Frame_Buffer = (unsigned char *) malloc(sizeof(unsigned char)*240*320*3);
+	Jpeg_Buffer = (unsigned char *)malloc(sizeof(unsigned char) * 240*320*2);
 
 	v4l2ctx = CreateCameraContext();
 #ifdef __DEBUG__
@@ -51,13 +52,13 @@ void main()
 #ifdef __DEBUG__
 	printf("After CameraGetOneFram in main!\n");
 #endif
-	CameraReturnOneFame(v4l2ctx, &buff);
-#ifdef __DEBUG__
-	printf("After CameraReturnOneFame in main!\n");
-#endif
 	int cnt = ((V4L2_CONTEXT*)v4l2ctx)->mBufferCnt;
 	int length = ((V4L2_CONTEXT*)v4l2ctx)->mMapMem.length;
-	decoder_decode(decoder, Frame_Buffer, ((V4L2_CONTEXT*)v4l2ctx)->mMapMem.mem[cnt], length);
+	memcpy(Jpeg_Buffer, ((V4L2_CONTEXT*)v4l2ctx)->mMapMem.mem[cnt], length);
+#ifdef __DEBUG__
+	printf("the buff legth is %d !!\nthe buffcnt is %d!!\n",length, cnt);
+#endif
+	decoder_decode(decoder, Frame_Buffer, Jpeg_Buffer, length);
 #ifdef __DEBUG__
 	printf("IMG decompress finish!\n");
 #endif
@@ -66,6 +67,10 @@ void main()
 	printf("Before ImageSave_2_Bmp in main!\n");
 #endif
 	ImageSave_2_Bmp(v4l2ctx, &bi, &bf, Frame_Buffer);
+#ifdef __DEBUG__
+	printf("After ImageSave_2_Bmp in main!\n");
+#endif
+	CameraReturnOneFame(v4l2ctx, &buff);
 #ifdef __DEBUG__
 	printf("Before StopCamera in main!\n");
 #endif
@@ -78,6 +83,7 @@ void main()
 
 	v4l2ctx = NULL;
 	free(Frame_Buffer);
+	free(Jpeg_Buffer);
 
 //	return 0;
 

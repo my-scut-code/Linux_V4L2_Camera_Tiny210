@@ -122,6 +122,8 @@ int setV4l2DeviceParam(void* v4l2ctx, int *width, int *height)
 {
 	int ret = 0;
 	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
+	V4l2_Context->height = *height;
+	V4l2_Context->width = *width;
 	struct v4l2_format format;
 	memset(&format, 0, sizeof(struct v4l2_format));
 	format.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -243,6 +245,7 @@ int V4l2MapBuffer(void* v4l2ctx)
 		}
 		V4l2_Context->mMapMem.length = Buff.length;
 #ifdef __DEBUG__
+		printf("QUERYBUF length in mmap is %d!\n", Buff.length);
 		printf("Map buffer is ok in V4L2_V4l2MapBuffer!\n");
 #endif
 		ret = ioctl(V4l2_Context->mCamFd, VIDIOC_QBUF, &Buff);
@@ -287,6 +290,7 @@ int GetFrame(void* v4l2ctx, struct v4l2_buffer *buff)
 		return -1;
 	}
 	V4l2_Context->mBufferCnt = buff->index;
+	V4l2_Context->mMapMem.length = buff->bytesused;
 	return 0;
 	
 

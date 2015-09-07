@@ -153,13 +153,10 @@ void decoder_mjpeg_decode(Decoder *thiz,
 				memcpy(jpeg_buf + pos, dht_data, sizeof(dht_data));
 				pos += sizeof(dht_data);
 
-				memcpy(jpeg_buf+pos, pcur,buf_size);
-				pos += buf_size - size_start;
-				
-#ifdef __DEBUG__
-				printf("begin decoder_jpeg_decompress!!\n");
-#endif
-				decoder_jpeg_decompress(out_buf, jpeg_buf, pos);
+                memcpy(jpeg_buf + pos, pcur, buf_size - size_start);
+                pos += buf_size - size_start;
+
+                decoder_jpeg_decompress(out_buf, jpeg_buf, pos);
 
 				free(jpeg_buf);
 				jpeg_buf = NULL;
