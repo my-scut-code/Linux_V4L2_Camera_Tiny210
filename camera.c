@@ -8,7 +8,7 @@
 #define NUM_BUFFERNUM 1
 #define BMP "/home/plg/image.bmp"
 #define YUV "/home/plg/image_yuv.yuv"
-unsigned char TESTBUF[240 * 320*4];
+
 #define __DEBUG__
 
 void *CreateCameraContext()
@@ -173,7 +173,7 @@ void Yuv_2_Rgb(void* v4l2ctx, unsigned char *Frame_buffer)
 	}
 }
 
-static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
+static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer, unsigned char *BmpBuffer)
 {
 	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
 
@@ -181,6 +181,7 @@ static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
 	int width = V4l2_Context->width;
 	int r,g,b;
 	int i,j;
+	/*
 	unsigned char * buf;
 	buf = (unsigned char *)malloc(width*height*3*sizeof(unsigned char));
 	if (NULL == buf)
@@ -188,6 +189,7 @@ static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
 		perror("don't have enough space!!\n");
 	}
 	memset(buf, 0, (width*height*sizeof(unsigned char)));	
+	*/
 	//memcpy(buf, Frame_buffer,(width*height*3*sizeof(unsigned char)));
 	for(i=0; i < height; i++)
 	{
@@ -196,9 +198,11 @@ static void RGB2BGR(void* v4l2ctx, unsigned char *Frame_buffer)
 			r = *(Frame_buffer + (i * width +j) * 3);
 			g = *(Frame_buffer + (i * width + j) * 3 + 1);
 			b = *(Frame_buffer + (i * width + j) * 3 + 2);
-			*(buf + ((height-i-1)*width+j)*3) = b;
-			*(buf + ((height-i-1)*width+j)*3+1) = g;
-			*(buf + ((height-i-1)*width+j)*3+2) = r;
+			*(BmpBuffer + ((height-i-1)*width+j)*4) = b;
+			*(BmpBuffer + ((height-i-1)*width+j)*4+1) = g;
+			*(BmpBuffer + ((height-i-1)*width+j)*4+2) = r;
+			*(BmpBuffer + ((height-i-1)*width+j)*4=3) = 0xff;
+
 		}
 	}
 	memcpy(Frame_buffer, buf, (width*height*3*sizeof(unsigned char)));
@@ -232,14 +236,15 @@ void InitBMP(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf)
 void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, unsigned char *Frame_Buffer)
 {
 	V4L2_CONTEXT* V4l2_Context = (V4L2_CONTEXT*) v4l2ctx;
-	//FILE *fp1;
-
+	FILE *fp1;
+	unsigned char  BmpImage[V4l2_Context->width*V4l2_Context->height*4];
 	unsigned char end[2] = {0,0};
-	//fp1 = fopen(BMP, "wb");
-	//if (NULL == fp1)
-	//{
-	//	perror("open BMP error!!");
-	//}
+	
+	fp1 = fopen(BMP, "wb");
+	if (NULL == fp1)
+	{
+		perror("open BMP error!!");
+	}
 	unsigned char *gray = (unsigned char *)malloc(sizeof(unsigned char)*240*320*3);
 	/*
 	fp2 = fopen(YUV, "wb");
@@ -252,13 +257,13 @@ void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, 
 	printf("YUV write finish!\n");
 	*/
 	//Yuv_2_Rgb(v4l2ctx, Frame_Buffer);
-	/*
+	
 	char heard[54] = {0x42,0x4d,0x38,0x84,0x03,0,0,0,0,0,0x36,0,0,0,0x28,0,\
 		0,0,0x40,0x01,0,0,0xf0,0,0,0,0x01,0,0x18,0,0,0,\
 		0,0,0x2,0x84,0x03,0,0x12,0x0b,0,0,0x12,0x0b,0,0,0,0,\
 		0,0,0,0,0,0};
 	
-	//RGB2BGR(v4l2ctx, Frame_Buffer);
+	RGB2BGR(v4l2ctx, Frame_Buffer, BmpImage);
 	//fwrite(&bf, 14, 1, fp1);
 	//fwrite(&bi, 40, 1, fp1);
 	fwrite(heard, 54, 1, fp1);
@@ -267,10 +272,12 @@ void ImageSave_2_Bmp(void* v4l2ctx, BITMAPINFOHEADER* bi, BITMAPFILEHEADER* bf, 
 	printf("BMP write finish!\n");
 
 	fclose(fp1);
-	*/
+	/*
 	Gray(Frame_Buffer, gray, 320, 240);
 	SaveCompareRgb(gray, 240, 320);
+	*/
 	free(gray);
+	
 	//fclose(fp2);
 }
 
@@ -336,6 +343,7 @@ void SaveCompareRgb(unsigned char*RGB,int height, int width)
 	struct   tm     *timenow;
 	char filename[200] = {0};
 	char end[2] = {0,0};
+	unsigned char TESTBUF[240 * 320 * 4];
 	//static int ms = 0;
 	int w = width;
 	int h = height;
@@ -381,7 +389,6 @@ void SaveCompareRgb(unsigned char*RGB,int height, int width)
 		fwrite(TESTBUF,size*4,1,outfile);
 		fwrite(end,2,1,outfile);
 		fclose(outfile);
-		//ms++;
 	}
 
 }
